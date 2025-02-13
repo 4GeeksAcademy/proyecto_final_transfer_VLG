@@ -17,26 +17,8 @@ label_encoder_foot=load(open("./le_foot.sav", "rb"))
 label_encoder_sub_position=load(open("./le_sub_position.sav", "rb"))
 label_encoder_position=load(open("./le_position.sav", "rb"))
 
-def cargar_modelo_comprimido(ruta):
-    """Carga el modelo comprimido con gzip."""
-    if not os.path.exists(ruta):
-        raise FileNotFoundError(f"El archivo {ruta} no existe. Verifica que está en la carpeta correcta.")
-    with gzip.open(ruta, "rb") as f:
-        modelo = joblib.load(f)
-    return modelo
-
-# Define la ruta del modelo comprimido
-RUTA_MODELO = "./modelo.pkl.gz"
-
-# Intenta cargar el modelo
-try:
-    st.write("Cargando el modelo...")
-    model = cargar_modelo_comprimido(RUTA_MODELO)
-    st.success("Modelo cargado exitosamente.")
-except Exception as e:
-    st.error(f"Error al cargar el modelo: {str(e)}")
-    st.stop()  # Detiene la app si no se puede cargar el modelo
-
+# Cargar modelo
+modelo_cargado = load("modelo.joblib")
 
 @st.cache(persist=True)
 def load_data(file_path):
