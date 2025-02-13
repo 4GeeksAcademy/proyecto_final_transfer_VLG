@@ -4,6 +4,7 @@ import numpy as np
 #import plotly.express as px
 import gzip
 import joblib
+from joblib import load
 import os
 from pickle import load
 
@@ -22,7 +23,7 @@ label_encoder_sub_position=load(open("./le_sub_position.sav", "rb"))
 label_encoder_position=load(open("./le_position.sav", "rb"))
 
 # Cargar modelo
-model = load("./modelo.joblib")
+modelo_cargado = load("modelo.joblib")
 
 @st.cache(persist=True)
 def load_data(file_path):
