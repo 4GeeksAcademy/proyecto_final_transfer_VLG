@@ -7,6 +7,10 @@ import joblib
 import os
 from pickle import load
 
+# Configurar Streamlit para Render
+port = int(os.environ.get("PORT", 8501))
+st.set_page_config(page_title="Predicción de valor de mercado", layout="wide")
+
 #print(os.getcwd())
 
 #label_encoder_city_of_birth=load(open("./le_city_of_birth.sav", "rb"))
