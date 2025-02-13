@@ -22,7 +22,7 @@ label_encoder_sub_position=load(open("./le_sub_position.sav", "rb"))
 label_encoder_position=load(open("./le_position.sav", "rb"))
 
 # Cargar modelo
-model = load("modelo.joblib")
+model = load("./modelo.joblib")
 
 @st.cache(persist=True)
 def load_data(file_path):
