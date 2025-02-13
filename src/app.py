@@ -22,8 +22,12 @@ label_encoder_foot=load(open("./le_foot.sav", "rb"))
 label_encoder_sub_position=load(open("./le_sub_position.sav", "rb"))
 label_encoder_position=load(open("./le_position.sav", "rb"))
 
+
 # Cargar modelo
-modelo_cargado = load("modelo.joblib")
+#modelo_cargado = load("modelo.joblib")
+
+ruta_modelo = os.path.join(os.getcwd(), "modelo.joblib")
+model = load(ruta_modelo)
 
 @st.cache(persist=True)
 def load_data(file_path):
